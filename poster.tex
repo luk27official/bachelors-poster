@@ -93,8 +93,8 @@
 	headerFontColor=black,
 	}%
 	{\includegraphics[height=7em]{logos/mff-black.pdf}}
-	{Thesis name goes here}
-	{\vspace{1ex} Yourname Goeshere}
+	{Extension of web-based interface for protein binding sites prediction}
+	{\vspace{1ex} Lukáš Polák}
 	{\includegraphics[height=7em]{logos/uk-red.pdf}}
 
 
@@ -102,54 +102,76 @@
 % LEFT COLUMN
 %
 
-\begin{posterbox}[column=0,name=background]{Background}
-Describe what is the problem that your thesis addresses.
+\begin{posterbox}[column=0,name=intro]{Introduction}
 
-Include a picture of the problem. Name the problem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
+consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
+nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
 
 \begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
 \node[rectangle, rounded corners=1ex, draw=red!80!black, color=red!80!black, font=\huge\bfseries, rotate=21] {Problem!};
 \end{tikzpicture}\end{center}
 \end{posterbox}
 
-\begin{posterbox}[column=0, name=goals, below=background, headerColorOne=cyan!60, boxColorOne=cyan!20]{Thesis goals}
+\begin{posterbox}[column=0, name=goals, below=intro, headerColorOne=cyan!60, boxColorOne=cyan!20]{Thesis goals}
+There were two main goals of the thesis:
 \begin{itemize}
-\item How do you approach and address the problem?
-\item What tools do you use to address it?
-\item \dots
+\item Improve the web frontend, replace old and unsupported components with new ones.
+\item Extend the server architecture to enable simple addition of modules for postprocessing of the predicted
+binding sites.
 \end{itemize}
-
-Highlighting important boxes helps a lot, but do not overdo the highlighting --- if all boxes are highlighted, not a single one will actually stand out.
 \end{posterbox}
 
-\begin{posterbox}[column=0, name=something1, below=goals]{Some extra boxes}
+\begin{posterbox}[column=0, name=architecture, below=goals]{Server architecture}
+
+This box will contain a description of the server architecture \dots
+
 This box may contain an overview of the used methods, mathematics, program structure, etc.
 
 Include a picture, because pictures are better. Thesis defense takes less than 10 minutes, no one can read a wall of text in that short time. (For comparison, the usual realistic poster visit on a conference takes 15 seconds, unless the poster manages to catch the attention in that short time.)
 
-\tikzstyle{rec}=[rectangle, draw, rounded corners=1ex, font=\huge\bfseries]
-\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
-\node[rec] (a) {Keep};
-\node[rec, circle, right=of a] (b) {it};
-\node[rec, right=of b] (c) {simple};
-\node[rec, densely dotted, below=6cm of c, font=\small] (notice) {\dots{}but precise!};
-\draw[->] (a) to (b);
-\draw[->] (b) to (c);
-\draw[dotted] (notice) to (c);
-\end{tikzpicture}\end{center}
+TODO: add a diagram of the server architecture
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
+consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
+nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
+consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
+nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
+consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
+nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
+consequat ultricies.
+
+%\tikzstyle{rec}=[rectangle, draw, rounded corners=1ex, font=\huge\bfseries]
+%\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
+%\node[rec] (a) {Keep};
+%\node[rec, circle, right=of a] (b) {it};
+%\node[rec, right=of b] (c) {simple};
+%\node[rec, densely dotted, below=6cm of c, font=\small] (notice) {\dots{}but precise!};
+%\draw[->] (a) to (b);
+%\draw[->] (b) to (c);
+%\draw[dotted] (notice) to (c);
+%\end{tikzpicture}\end{center}
 
 \end{posterbox}
 
-\begin{posterbox}[column=0, name=something2, below=something1, headerColorOne=yellow!80!orange!95!black, boxColorOne=yellow!33]{Golden rule of posters}
-For each $p \in P$ where $P$ is a set of posters:
-$$ \textsc{Success}(p) = \frac{\textsc{Clarity}(p)}{\textsc{TimeToViewerAttention}(p)} $$
+\begin{posterbox}[column=0, name=tech, below=architecture, headerColorOne=yellow!80!orange!95!black, boxColorOne=yellow!33]{Technologies}
+\begin{itemize}
+	\item \textbf{Frontend} - React (TypeScript), specialized libraries Mol* and RCSB Saguaro 1D Viewer
+	\item \textbf{Backend} - Python, Flask, Celery
+\end{itemize}
+The entire project is Dockerized and deployed via Docker-compose.
 \end{posterbox}
 
 %
 % FOOTER
 %
 
-\begin{posterbox}[column=0, span=2, name=footer, below=something2,
+\begin{posterbox}[column=0, span=2, name=footer, below=tech,
 	textborder=none, headerborder=none, boxheaderheight=0pt,
 	boxColorOne=black!3]{}
 If some institute/grant/department sponsored the work, put an acknowledgement here.
@@ -163,15 +185,17 @@ If some institute/grant/department sponsored the work, put an acknowledgement he
 % with measurements are perfect, tables are also good.
 %
 
-\begin{posterbox}[column=1, name=result1]{Result: SomePlots are Good}
+\begin{posterbox}[column=1, name=result1]{Frontend}
 \begin{center}
 \includegraphics[width=0.7\linewidth]{img/ukazka-obr02.pdf}
 \end{center}
 
-You may want to choose a single picture and make it stand out of the poster, so that it communicates the main result of your thesis as clearly as possible.
+TODO: add pictures, potentially a comparison of the old and new frontend.
 \end{posterbox}
 
-\begin{posterbox}[column=1, name=result2, below=result1]{Result: TableData are OK too}
+\begin{posterbox}[column=1, name=result2, below=result1]{Backend plugins}
+
+TODO: add some pictures of the plugin or the example (docking)?
 \begin{center}
 \begin{tabular}{lrr}
  & \textbf{SomeProgram} & \textbf{ThisThesis} \\
@@ -194,18 +218,17 @@ Program ThesisProgram solves the problem better than OtherProgram if X, and fast
 \vspace{.5ex}
 \end{posterbox}
 
-\begin{posterbox}[column=1, name=conclusion, below=result3, bottomaligned=something2]{Conclusions}
-\begin{itemize}
-\item explain the value of your result to others
-\item point out any applications
-\item if the program is online/opensource/on github, you may highlight it here
-\end{itemize}
-Possible future work:
-\begin{itemize}
-\item say what could be improved
-\item point out any interesting new opened problems that would be worth investigating
-\item include long-term goals
-\end{itemize}
+\begin{posterbox}[column=1, name=conclusion, below=result3, bottomaligned=tech]{Source codes \& Contact}
+
+Thesis supervisor: \textbf{doc. RNDr. David Hoksza, Ph.D.}, Department of Software Engineering
+
+GitHub repository: \textbf{https://github.com/cusbg/prankweb}
+
+Running instance: \textbf{https://prankweb.cz}
+
+
+TODO: maybe add a QR code with the link to the repository or the running instance.
+TODO: use the cusbg or mine?
 \end{posterbox}
 
 \end{poster}
