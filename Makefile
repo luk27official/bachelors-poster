@@ -1,9 +1,7 @@
+all: build/poster.pdf
 
-all: poster.pdf
-
-poster.pdf: poster.tex
-	pdflatex $<
-	pdflatex $<
+build/poster.pdf: poster.tex
+	pdflatex $< -output-directory=build
 
 clean:
-	rm -fr poster.pdf poster.aux poster.log
+	rm -fr build/poster.pdf build/poster.aux build/poster.log
