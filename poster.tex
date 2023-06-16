@@ -104,13 +104,18 @@
 
 \begin{posterbox}[column=0,name=intro]{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
-nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
+Detection of protein ligand-binding sites is a vital aspect of nowadays drug
+discovery and development. Identification of the potential binding sites allows an
+understanding of various molecule interactions, which is the first step of rational
+drug discovery pipelines.
 
-\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
-\node[rectangle, rounded corners=1ex, draw=red!80!black, color=red!80!black, font=\huge\bfseries, rotate=21] {Problem!};
-\end{tikzpicture}\end{center}
+PrankWeb is a web-based tool developed at MFF UK for prediction of protein binding sites. It is based
+on the P2Rank tool that uses machine learning to predict the binding sites.
+
+%\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
+%\node[rectangle, rounded corners=1ex, draw=red!80!black, color=red!80!black, font=\huge\bfseries, rotate=21] {Problem!};
+%\end{tikzpicture}\end{center}
+
 \end{posterbox}
 
 \begin{posterbox}[column=0, name=goals, below=intro, headerColorOne=cyan!60, boxColorOne=cyan!20]{Thesis goals}
@@ -161,10 +166,11 @@ consequat ultricies.
 
 \begin{posterbox}[column=0, name=tech, below=architecture, headerColorOne=yellow!80!orange!95!black, boxColorOne=yellow!33]{Technologies}
 \begin{itemize}
-	\item \textbf{Frontend} - React (TypeScript), specialized libraries Mol* and RCSB Saguaro 1D Viewer
+	\item \textbf{Frontend} - React (TypeScript), specialized open-source libraries Mol* and RCSB Saguaro 1D Viewer
 	\item \textbf{Backend} - Python, Flask, Celery
 \end{itemize}
-The entire project is Dockerized and deployed via Docker-compose.
+The entire project is dockerized and deployed via Docker-compose. Some of the containers use different
+technologies as well (e.g. Java), but those were not affected by the thesis.
 \end{posterbox}
 
 %
@@ -187,48 +193,78 @@ If some institute/grant/department sponsored the work, put an acknowledgement he
 
 \begin{posterbox}[column=1, name=result1]{Frontend}
 \begin{center}
-\includegraphics[width=0.7\linewidth]{img/ukazka-obr02.pdf}
+	\includegraphics[width=0.8\linewidth]{img/Nový projekt (2).pdf}
 \end{center}
 
-TODO: add pictures, potentially a comparison of the old and new frontend.
+One of the two replaced components is the 1D viewer. We employed the RCSB Saguaro 1D Viewer.
+In the picture, the viewer shows the P06213 protein sequence with the predicted binding sites colored in the same theme as in Mol*.
+The conservation and AlphaFold confidence scores are shown in the form of a histogram.
+
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/new2.pdf}
+\end{center}
+
+In the second picture, the 3D representation of the protein 2SRC is shown.
+As the 3D viewer, we used the Mol* library, which is actively developed.
+The viewer is interactive and there are plenty of options to customize the visualization.
+In this picture, the ball-and-stick representation is used for the protein, the binding sites are shown in the surface representation.
+The atoms are colored by their conservation score.
+
 \end{posterbox}
 
 \begin{posterbox}[column=1, name=result2, below=result1]{Backend plugins}
 
-TODO: add some pictures of the plugin or the example (docking)?
-\begin{center}
-\begin{tabular}{lrr}
- & \textbf{SomeProgram} & \textbf{ThisThesis} \\
-\hline
-Process A & 50\% & 58\% \\
-Time for A & 35 days & \textcolor{green!80!black}{35 seconds} \\
-Process B & \textcolor{red}{15\%} & 55\% \\
-Time for B & 1 day & 8 hours \\
-Price & 66.6 EUR & free
-\end{tabular}
-\end{center}
+As an example of the plugin system, we implemented a plugin that allows binding molecules into the predicted binding sites.
+The plugin uses the AutoDock Vina software, which is a popular tool for molecular docking.
+The implementation was integrated into the existing server architecture, so there were minimal changes to the existing codebase and deployment.
+
+%TODO: add some pictures of the plugin or the example (docking)?
+%\begin{center}
+%\begin{tabular}{lrr}
+% & \textbf{SomeProgram} & \textbf{ThisThesis} \\
+%\hline
+%Process A & 50\% & 58\% \\
+%Time for A & 35 days & \textcolor{green!80!black}{35 seconds} \\
+%Process B & \textcolor{red}{15\%} & 55\% \\
+%Time for B & 1 day & 8 hours \\
+%Price & 66.6 EUR & free
+%\end{tabular}
+%\end{center}
 \end{posterbox}
 
-\begin{posterbox}[column=1, name=result3, below=result2, headerColorOne=green!50!yellow, boxColorOne=green!10]{Main result}
-\large\bfseries
-\vspace{1ex}
-\begin{center}
-Program ThesisProgram solves the problem better than OtherProgram if X, and faster if Y.
-\end{center}
-\vspace{.5ex}
-\end{posterbox}
+%\begin{posterbox}[column=1, name=result3, below=result2, headerColorOne=green!50!yellow, boxColorOne=green!10]{Main result}
+%\large\bfseries
+%\vspace{1ex}
+%\begin{center}
+%Program ThesisProgram solves the problem better than OtherProgram if X, and faster if Y.
+%\end{center}
+%\vspace{.5ex}
+%\end{posterbox}
 
-\begin{posterbox}[column=1, name=conclusion, below=result3, bottomaligned=tech]{Source codes \& Contact}
+\begin{posterbox}[column=1, name=conclusion, below=result2, bottomaligned=tech]{Source codes \& Contact}
 
-Thesis supervisor: \textbf{doc. RNDr. David Hoksza, Ph.D.}, Department of Software Engineering
+%TODO: maybe add a QR code with the link to the repository or the running instance.
 
-GitHub repository: \textbf{https://github.com/cusbg/prankweb}
+\begin{minipage}[t]{\linewidth}
+	\begin{minipage}[t]{0.75\linewidth}
+		Thesis supervisor: \textbf{doc. RNDr. David Hoksza, Ph.D.}, Department of Software Engineering\\
 
-Running instance: \textbf{https://prankweb.cz}
+		GitHub repos: \textbf{github.com/cusbg/prankweb}, \textbf{github.com/cusbg/p2rank-framework}\\
+
+		Running instance: \textbf{prankweb.cz}
+		%TODO: use the cusbg or mine?
+	\end{minipage}
+	\quad
+	\begin{minipage}[t]{0.20\linewidth}
+		\vspace{-2ex}
+		\includegraphics[width=1\linewidth]{./img/dbe7ed14a5bd51a8518c9a1d66eaa759.png} %TODO: use running instance or github?
+		\begin{center}
+			Try it out yourself!
+		\end{center}
+	\end{minipage}
+\end{minipage}
 
 
-TODO: maybe add a QR code with the link to the repository or the running instance.
-TODO: use the cusbg or mine?
 \end{posterbox}
 
 \end{poster}

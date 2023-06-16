@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build poster PDFs
+    name: Build poster PDF
     runs-on: ubuntu-latest
     container: { image: 'aergus/latex' }
 
@@ -21,6 +21,6 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Thesis
+          name: Poster
           path: |
             *.pdf
