@@ -1,0 +1,30 @@
+C4Component
+
+Person(user, "User")
+
+Enterprise_Boundary("prankweb-boundary", "PrankWeb") {
+    
+    Container("gw", "Gateway & Frontend", "", "NginX + React frontend")
+
+    Rel("user", "gw", "")
+
+    Container("cl", "Communication Layer", "", "Flask, Celery, RabbitMQ, Prometheus, Flower")
+
+    Rel("gw", "cl", "")
+
+    Container("be_p2", "P2Rank Executor", "", "Python, Celery, Java")
+
+    Rel("cl", "be_p2", "")
+
+    Container("be_dock", "Docking Executor", "", "Python, Celery")
+
+    Rel("cl", "be_dock", "")
+}
+
+Enterprise_Boundary("external", "External Databases") {
+    ContainerDb("db", "External Databases", "RCSB PDB, AlphaFold DB")
+
+    Rel("be_p2", "db", "")
+}
+
+UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")

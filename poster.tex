@@ -109,8 +109,7 @@ discovery and development. Identification of the potential binding sites allows 
 understanding of various molecule interactions, which is the first step of rational
 drug discovery pipelines.
 
-PrankWeb is a web-based tool developed at MFF UK for prediction of protein binding sites. It is based
-on the P2Rank tool that uses machine learning to predict the binding sites.
+PrankWeb is a web-based tool developed at MFF UK for visualizing predictions of protein binding sites. It is based on the P2Rank tool that predicts binding sites quickly and efficiently. The website is used by thousands of users every month.
 
 %\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
 %\node[rectangle, rounded corners=1ex, draw=red!80!black, color=red!80!black, font=\huge\bfseries, rotate=21] {Problem!};
@@ -121,35 +120,22 @@ on the P2Rank tool that uses machine learning to predict the binding sites.
 \begin{posterbox}[column=0, name=goals, below=intro, headerColorOne=cyan!60, boxColorOne=cyan!20]{Thesis goals}
 There were two main goals of the thesis:
 \begin{itemize}
-\item Improve the web frontend, replace old and unsupported components with new ones.
-\item Extend the server architecture to enable simple addition of modules for postprocessing of the predicted
+\item Improve the web frontend and replace old and unsupported components with new ones.
+\item Extend the server architecture to enable the simple addition of modules for postprocessing of the predicted
 binding sites.
 \end{itemize}
 \end{posterbox}
 
 \begin{posterbox}[column=0, name=architecture, below=goals]{Server architecture}
 
-This box will contain a description of the server architecture \dots
+The architecture of PrankWeb is rather complex and consists of several components.
+For simplicity, the architecture may be divided as follows:
 
-This box may contain an overview of the used methods, mathematics, program structure, etc.
+\begin{center}
+	\includegraphics[width=0.8\linewidth]{img/arch.pdf}
+\end{center}
 
-Include a picture, because pictures are better. Thesis defense takes less than 10 minutes, no one can read a wall of text in that short time. (For comparison, the usual realistic poster visit on a conference takes 15 seconds, unless the poster manages to catch the attention in that short time.)
-
-TODO: add a diagram of the server architecture
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
-nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
-nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-consequat ultricies, nunc ipsum aliquam nunc, vitae aliquam nisl nunc eu
-nunc. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nisl quis
-consequat ultricies.
+The nodes of the diagram do not represent actual containers, but logical units of the system. Blue nodes represent units that were not modified during the thesis, purple nodes represent units that were highly modified or added during the implementation.
 
 %\tikzstyle{rec}=[rectangle, draw, rounded corners=1ex, font=\huge\bfseries]
 %\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
@@ -177,11 +163,11 @@ technologies as well (e.g. Java), but those were not affected by the thesis.
 % FOOTER
 %
 
-\begin{posterbox}[column=0, span=2, name=footer, below=tech,
-	textborder=none, headerborder=none, boxheaderheight=0pt,
-	boxColorOne=black!3]{}
-If some institute/grant/department sponsored the work, put an acknowledgement here.
-\end{posterbox}
+%\begin{posterbox}[column=0, span=2, name=footer, below=tech,
+%	textborder=none, headerborder=none, boxheaderheight=0pt,
+%	boxColorOne=black!3]{}
+%If some institute/grant/department sponsored the work, put an acknowledgement here.
+%\end{posterbox}
 
 %
 % RIGHT COLUMN
@@ -212,7 +198,8 @@ The atoms are colored by their conservation score.
 
 \end{posterbox}
 
-\begin{posterbox}[column=1, name=result2, below=result1]{Backend plugins}
+\begin{posterbox}[column=1, name=result2, below=result1,
+headerColorOne=violet!90!blue!60, boxColorOne=violet!15]{Backend plugins}
 
 As an example of the plugin system, we implemented a plugin that allows binding molecules into the predicted binding sites.
 The plugin uses the AutoDock Vina software, which is a popular tool for molecular docking.
@@ -251,7 +238,9 @@ The implementation was integrated into the existing server architecture, so ther
 
 		GitHub repos: \textbf{github.com/cusbg/prankweb}, \textbf{github.com/cusbg/p2rank-framework}\\
 
-		Running instance: \textbf{prankweb.cz}
+		Running instance: \textbf{prankweb.cz}\\
+
+		Thanks to the CUSBG members for the opportunity to work on this project and for all the consultations.
 		%TODO: use the cusbg or mine?
 	\end{minipage}
 	\quad
@@ -259,7 +248,7 @@ The implementation was integrated into the existing server architecture, so ther
 		\vspace{-2ex}
 		\includegraphics[width=1\linewidth]{./img/qr_prankweb_cz.png} %TODO: use running instance or github?
 		\begin{center}
-			Try it out yourself!
+			Try the running instance out!
 		\end{center}
 	\end{minipage}
 \end{minipage}
