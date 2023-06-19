@@ -104,10 +104,7 @@
 
 \begin{posterbox}[column=0,name=intro]{Introduction}
 
-Detection of protein ligand-binding sites is a vital aspect of nowadays drug
-discovery and development. Identification of the potential binding sites allows an
-understanding of various molecule interactions, which is the first step of rational
-drug discovery pipelines.
+Detection of protein ligand-binding sites is a vital aspect of nowadays drug discovery and development. Identification of the potential binding sites (also called pockets) allows an understanding of various molecule interactions, which is the first step of rational drug discovery pipelines.
 
 PrankWeb is a web-based tool developed at MFF UK for visualizing predictions of protein binding sites. It is based on the P2Rank tool that predicts binding sites quickly and efficiently. The website is used by thousands of users every month.
 
@@ -121,8 +118,7 @@ PrankWeb is a web-based tool developed at MFF UK for visualizing predictions of 
 There were two main goals of the thesis:
 \begin{itemize}
 \item Improve the web frontend and replace old and unsupported components with new ones.
-\item Extend the server architecture to enable the simple addition of modules for postprocessing of the predicted
-binding sites.
+\item Extend the server architecture to enable the simple addition of modules (plugins) for postprocessing of the predicted binding sites.
 \end{itemize}
 \end{posterbox}
 
@@ -135,7 +131,7 @@ For simplicity, the architecture may be divided as follows:
 	\includegraphics[width=0.8\linewidth]{img/arch.pdf}
 \end{center}
 
-The nodes of the diagram do not represent actual containers, but logical units of the system. Blue nodes represent units that were not modified during the thesis, purple nodes represent units that were highly modified or added during the implementation.
+The nodes of the diagram do not represent actual containers, but logical units of the system. Blue nodes represent units that were not modified during the thesis, purple nodes represent units that were substantially modified or added during the implementation.
 
 %\tikzstyle{rec}=[rectangle, draw, rounded corners=1ex, font=\huge\bfseries]
 %\begin{center}\begin{tikzpicture}[ultra thick, inner sep=1ex]
@@ -150,13 +146,12 @@ The nodes of the diagram do not represent actual containers, but logical units o
 
 \end{posterbox}
 
-\begin{posterbox}[column=0, name=tech, below=architecture, headerColorOne=yellow!80!orange!95!black, boxColorOne=yellow!33]{Technologies}
+\begin{posterbox}[column=0, name=tech, below=architecture, headerColorOne=yellow!80!orange!95!black, boxColorOne=yellow!33]{Thesis-specific technologies}
 \begin{itemize}
 	\item \textbf{Frontend} - React (TypeScript), specialized open-source libraries Mol* and RCSB Saguaro 1D Viewer
 	\item \textbf{Backend} - Python, Flask, Celery
 \end{itemize}
-The entire project is dockerized and deployed via Docker-compose. Some of the containers use different
-technologies as well (e.g. Java), but those were not affected by the thesis.
+The entire project is dockerized and deployed via Docker-compose. Some of the containers use different technologies as well (e.g. Java), but those were not affected by the thesis.
 \end{posterbox}
 
 %
@@ -183,7 +178,7 @@ technologies as well (e.g. Java), but those were not affected by the thesis.
 \end{center}
 
 One of the two replaced components is the 1D viewer. We employed the RCSB Saguaro 1D Viewer.
-In the picture, the viewer shows the P06213 protein sequence with the predicted binding sites colored in the same theme as in Mol*.
+In the picture, the viewer shows the human insulin receptor protein sequence (UniProt ID P06213) with the predicted binding sites colored in the same theme as in Mol*.
 The conservation and AlphaFold confidence scores are shown in the form of a histogram.
 
 \begin{center}
@@ -193,17 +188,15 @@ The conservation and AlphaFold confidence scores are shown in the form of a hist
 In the second picture, the 3D representation of the protein 2SRC is shown.
 As the 3D viewer, we used the Mol* library, which is actively developed.
 The viewer is interactive and there are plenty of options to customize the visualization.
-In this picture, the ball-and-stick representation is used for the protein, the binding sites are shown in the surface representation.
-The atoms are colored by their conservation score.
+In this picture, the ball-and-stick representation is used for the protein, the pockets are shown in the surface representation and each of the pockets is colored differently. Moreover, the atoms are colored by their conservation score in gray.
 
 \end{posterbox}
 
 \begin{posterbox}[column=1, name=result2, below=result1,
 headerColorOne=violet!90!blue!60, boxColorOne=violet!15]{Backend plugins}
 
-As an example of the plugin system, we implemented a plugin that allows binding molecules into the predicted binding sites.
-The plugin uses the AutoDock Vina software, which is a popular tool for molecular docking.
-The implementation was integrated into the existing server architecture, so there were minimal changes to the existing codebase and deployment.
+We have introduced a plugin system to PrankWeb. Newly created components allow the developers to create new plugins that can be used to postprocess the predicted binding sites. As an example of the plugin system, we implemented a plugin that allows binding molecules into the predicted binding sites.
+The implementation may be integrated into the existing server architecture, so there are minimal changes to the existing codebase and deployment.
 
 %TODO: add some pictures of the plugin or the example (docking)?
 %\begin{center}
@@ -236,11 +229,11 @@ The implementation was integrated into the existing server architecture, so ther
 	\begin{minipage}[t]{0.75\linewidth}
 		Thesis supervisor: \textbf{doc. RNDr. David Hoksza, Ph.D.}, Department of Software Engineering\\
 
-		GitHub repos: \textbf{github.com/cusbg/prankweb}, \textbf{github.com/cusbg/p2rank-framework}\\
+		GitHub repository (see the branches): \textbf{github.com/luk27official/prankweb}
 
 		Running instance: \textbf{prankweb.cz}\\
 
-		Thanks to the CUSBG members for the opportunity to work on this project and for all the consultations.
+		I'd also like to thank the CUSBG members.
 		%TODO: use the cusbg or mine?
 	\end{minipage}
 	\quad
@@ -248,7 +241,7 @@ The implementation was integrated into the existing server architecture, so ther
 		\vspace{-2ex}
 		\includegraphics[width=1\linewidth]{./img/qr_prankweb_cz.png} %TODO: use running instance or github?
 		\begin{center}
-			Try the running instance out!
+			Try it out yourself!
 		\end{center}
 	\end{minipage}
 \end{minipage}
