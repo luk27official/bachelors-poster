@@ -118,7 +118,7 @@ PrankWeb is a web-based tool developed at MFF UK for visualizing predictions of 
 There were two main goals of the thesis:
 \begin{itemize}
 \item Improve the web frontend and replace old and unsupported components with new ones.
-\item Extend the server architecture to enable the simple addition of modules (plugins) for postprocessing of the predicted binding sites.
+\item Extend the server architecture to enable the simple addition of modules (plugins) for post-processing of the predicted binding sites.
 \end{itemize}
 \end{posterbox}
 
@@ -195,7 +195,7 @@ In this picture, the ball-and-stick representation is used for the protein, the 
 \begin{posterbox}[column=1, name=result2, below=result1,
 headerColorOne=violet!90!blue!60, boxColorOne=violet!15]{Backend plugins}
 
-We have introduced a plugin system to PrankWeb. Newly created components allow the developers to create new plugins that can be used to postprocess the predicted binding sites. As an example of the plugin system, we implemented a plugin that allows molecular docking into the predicted binding sites.
+We introduced a plugin system to PrankWeb. Newly created components allow the developers to create new plugins that can be used to post-process the predicted binding sites. As an example of the plugin system, we implemented a plugin that allows molecular docking into the predicted binding sites.
 The implementation may be integrated into the existing server architecture, so there are minimal changes to the existing codebase and deployment.
 
 %TODO: add some pictures of the plugin or the example (docking)?
